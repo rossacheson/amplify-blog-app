@@ -6,7 +6,16 @@
     "gqlSchemaPath": "/Users/rossacheson/dev/prodev/amplify-blog-app/amplify/backend/api/amplifyblogapp/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-04-13T19:30:29.887Z",
+      "keyDescription": "public api key"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authamplifyblogapp7458a03c"
+      }
+    ]
   }
 }

@@ -34,6 +34,14 @@ export default function Home() {
       {posts.map((post, index) => (
         <Link key={index} href={`/posts/${post.id}`}>
           <div className="my-6 pb-6 border-b border-gray-300">
+            {post.coverImage && (
+              <img
+                src={post.coverImage}
+                className="w-36 h-36 bg-contain bg-center 
+                 rounded-full sm:mx-0 sm:shrink-0"
+                alt=""
+              />
+            )}
             <div className="cursor-pointer mt-2">
               <h2 className="text-xl font-semibold" key={index}>
                 {post.title}

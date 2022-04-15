@@ -52,7 +52,7 @@ export default function MyPosts() {
           sm:items-center sm:space-y-0 sm:space-x-6 mb-2"
         >
           {post.coverImage && (
-            <Image
+            <img
               className="w-36 h-36 bg-contain bg-center rounded-full sm:mx-0 sm:shrink-0"
               src={post.coverImage}
               alt=""

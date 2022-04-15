@@ -13,6 +13,15 @@ export const onCreatePost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -37,6 +46,15 @@ export const onUpdatePost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -61,6 +79,15 @@ export const onDeletePost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -85,6 +112,14 @@ export const onCreateComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt
@@ -109,6 +144,14 @@ export const onUpdateComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt
@@ -133,6 +176,14 @@ export const onDeleteComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt

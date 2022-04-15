@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Auth, API, Storage } from 'aws-amplify';
 import Link from 'next/link';
-import Image from 'next/image';
 import Moment from 'moment';
 
 import { postsByUsername } from '../src/graphql/queries';

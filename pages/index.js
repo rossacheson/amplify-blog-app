@@ -1,14 +1,34 @@
 import { useState, useEffect } from 'react';
-import { API, Storage } from 'aws-amplify';
-import { listPosts } from './../src/graphql/queries';
+import { API, Storage, graphqlOperation } from 'aws-amplify';
 import Link from 'next/link';
+
+import { listPosts } from './../src/graphql/queries';
+import { newOnCreatePost } from './../src/graphql/subscriptions';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState(null);
+
+  let subOnCreate;
+
+  function setUpSubscriptions() {
+    subOnCreate = API.graphql(graphqlOperation(newOnCreatePost)).subscribe({
+      next: (postData) => {
+        console.log(postData.value);
+        setPost(postData);
+      },
+    });
+  }
+  useEffect(() => {
+    setUpSubscriptions();
+    return () => {
+      subOnCreate.unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [post]);
 
   async function fetchPosts() {
     const postData = await API.graphql({
